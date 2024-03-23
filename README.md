@@ -8,7 +8,7 @@
 
 ## What is this
 
-This is a work in progress project I had made a while ago. For now it only parses Mojang mappings into a simpler format, but I plan to add later a system which will resolve the mappings by injecting into Minecraft and then convert it to the required JSON format.
+This program allows you to convert Mojang aweful mappings to a clean JSON format.
 
 ## Usage
 
