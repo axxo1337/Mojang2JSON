@@ -4,7 +4,9 @@ cmake_install.cmake
 *.sln
 *.vcxproj
 *.filters
+*.user
 
 CMakeFiles/
 Craft.dir/
 x64/
+.vs/
