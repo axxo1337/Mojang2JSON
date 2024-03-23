@@ -20,9 +20,9 @@ You'll need to gather appropriate Mojang client mappings for the Minecraft versi
 
 ### Footage
 
-[![Terminal Run](repo/screen_1.png)]
+![Terminal Run](repo/screen_1.png)
 
-[![Resulting File](repo/screen_2.png)]
+![Resulting File](repo/screen_2.png)
 
 [![Youtube Showcase](https://img.youtube.com/vi/NKe6OyuDFcY/maxresdefault.jpg)](https://www.youtube.com/watch?v=NKe6OyuDFcY)
 
