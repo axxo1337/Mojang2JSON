@@ -8,7 +8,7 @@
 
 ## What is this
 
-This is a program which allows you to convert <a href="https://piston-meta.mojang.com/mc/game/version_manifest_v2.json">Mojang mappings to a clean JSON format. I mainly created this for use with my <a href="https://github.com/aXXo-dev/JNIMapper">JNIMapper library</a>, but you can really utilise it for anything. It currently does not resolve the static indication for fields and classes, but this is something I plan on adding in the near future.
+This is a program which allows you to convert <a href="https://piston-meta.mojang.com/mc/game/version_manifest_v2.json">Mojang mappings</a> to a clean JSON format. I mainly created this for use with my <a href="https://github.com/aXXo-dev/JNIMapper">JNIMapper library</a>, but you can really utilise it for anything. It currently does not resolve the static indication for fields and classes, but this is something I plan on adding in the near future.
 
 ## Build
 
