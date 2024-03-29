@@ -1,7 +1,6 @@
 #ifndef PARSING_H_
 #define PARSING_H_
 
-#include <map>
 #include <unordered_map>
 #include <vector>
 #include <array>
@@ -11,7 +10,7 @@
 namespace Parsing
 {
 	class JClass;
-	using MappingsMap = std::map<std::string, JClass>;
+	using MappingsMap = std::unordered_map<std::string, JClass>;
 
 	static const std::unordered_map<std::string, std::string> jni_types = {
 		{"boolean", "Z"},

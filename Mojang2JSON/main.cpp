@@ -5,6 +5,7 @@
 
 #include "Parsing.h"
 
+/* Writes the parsed mappings to disk in a clean JSON format */
 bool writeMappingsAsJSON(Parsing::MappingsMap& mappings)
 {
 	printf("[+] Writing mappings to \"mappings.json\"\n");
@@ -50,6 +51,21 @@ bool writeMappingsAsJSON(Parsing::MappingsMap& mappings)
 	return false;
 }
 
+/* Resolves the static indicator for mappings */
+bool resolveMappings(Parsing::MappingsMap& mappings)
+{
+	printf("[+] Resolving mappings' indicator\n");
+
+#ifndef _WIN32
+	printf("[!!] Resolving not supported, skipping\n");
+#else
+	printf("[!!] Resolving not supported, skipping\n");
+#endif
+
+	return false;
+}
+
+/* Reads and parses mappings from Mojang format */
 bool parseMappings(const char* mappings_path, Parsing::MappingsMap& mappings)
 {
 	printf("[+] Parsing mappings\n");
@@ -74,6 +90,7 @@ bool parseMappings(const char* mappings_path, Parsing::MappingsMap& mappings)
 		if (line[0] == '#')
 			continue;
 
+		/* Is a new class */
 		if (line[0] != '\x20')
 		{
 			Parsing::JClass new_jclass(line);
@@ -82,6 +99,12 @@ bool parseMappings(const char* mappings_path, Parsing::MappingsMap& mappings)
 			current_jclass = &mappings[new_jclass.getName()];
 			is_parsing_methods = false;
 			continue;
+		}
+
+		if (current_jclass == nullptr)
+		{
+			printf("[-] Failed to read mappings, current_class was nullptr\n");
+			return true;
 		}
 
 		Parsing::cleanLine(line);
@@ -129,6 +152,9 @@ int main(int argc, char** argv)
 
 		if (parseMappings(argv[1], mappings))
 			throw std::runtime_error("Failed to parse mojang mappings");
+
+		if (resolveMappings(mappings))
+			throw std::runtime_error("Failed to resolve mappings");
 
 		if (writeMappingsAsJSON(mappings))
 			throw std::runtime_error("Failed to write mappings to JSON to disk");
