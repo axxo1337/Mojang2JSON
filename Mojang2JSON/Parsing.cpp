@@ -60,7 +60,7 @@ std::string JBase::resolveLineType(std::string line)
 
 	auto jni_type{ jni_types.find(type) };
 
-	/* If type is not JNI, it's an object */
+	/* If type is not in the types list, it's an object */
 	if (jni_type == jni_types.end())
 		type = (is_array ? "[" : "") + resolveObjectType(type);
 	else
@@ -95,13 +95,12 @@ std::string JBase::getObfuscatedName()
 
 JField::JField(const std::string& line)
 {
+	// Resolve its type
 	type = resolveLineType(line);
 
-	/* Read name */
-	{
-		size_t start{ line.find('\x20') + 1 };
-		name = line.substr(start, line.find('\x20', start + 1) - start);
-	}
+	/* Resolve its name */
+	size_t start{ line.find('\x20') + 1 };
+	name = line.substr(start, line.find('\x20', start + 1) - start);
 
 	obfuscated_name = resolveLineObfuscatedName(line);
 }

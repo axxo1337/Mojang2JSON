@@ -35,7 +35,7 @@ bool writeMappingsAsJSON(Parsing::MappingsMap& mappings)
 
 		for (auto jmethod_it{ jclass.methods.begin() }; jmethod_it != jclass.methods.end(); jmethod_it++)
 		{
-			output_stream << triple_padding + "\"" + jmethod_it->getName() + "\": \"U|" + "|(";
+			output_stream << triple_padding + "\"" + jmethod_it->getName() + "\": \"U|" + "(";
 
 			for (auto& argument : jmethod_it->getArguments()) output_stream << argument;
 
